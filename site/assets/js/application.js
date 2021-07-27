@@ -128,6 +128,47 @@
     })
   }
 
+  /*
+
+  const project = {
+  files: {
+    "index.ts": code,
+    "index.html": html
+  },
+  title: "Dynamically Generated Project",
+  description: "Created with <3 by the StackBlitz SDK!",
+  template: "typescript",
+  tags: ["stackblitz", "sdk"],
+  dependencies: {
+    moment: "*" // * = latest version
+  }
+};
+
+// Method to open project in new window
+window["openNewProject"] = () => {
+  sdk.openProject(project);
+};
+
+*/
+  document.querySelectorAll('.btn-edit')
+  .forEach(function (btn) {
+    var tooltipBtn = new bootstrap.Tooltip(btn)
+
+    btn.addEventListener('mouseleave', function () {
+      // Explicitly hide tooltip, since after clicking it remains
+      // focused (as it's a button), so tooltip would otherwise
+      // remain visible until focus is moved away
+      tooltipBtn.hide()
+    })
+
+    btn.addEventListener('click', function (e) {
+      var htmlSnippet = e.target.parentNode.nextElementSibling.nextElementSibling.textContent;
+
+      StackBlitzSDK.openBootstrapSnippet(htmlSnippet)
+
+    })
+  })
+
   // Insert copy to clipboard button before .highlight
   var btnHtml = '<div class="bd-clipboard"><button type="button" class="btn-clipboard" title="Copy to clipboard">Copy</button></div>'
   document.querySelectorAll('div.highlight')
